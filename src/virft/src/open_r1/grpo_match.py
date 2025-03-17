@@ -150,7 +150,7 @@ def accuracy_reward_match(completions, solution, **kwargs):
                 student_answer_scores = extract_score(student_answer)
                 # print(f"student_answer_scores: {student_answer_scores}")
                 # pdb.set_trace()
-                if student_answer_scores == None or type(student_answer_scores[0]) != dict:  # wrong bbox
+                if student_answer_scores == None or type(student_answer_scores[0]) != dict:
                     reward = 0.0
                 else:
                     reward = calculate_match(ground_truth_scores, student_answer_scores)
@@ -172,8 +172,8 @@ def accuracy_reward_match(completions, solution, **kwargs):
                 f.write(f"content: {content}\n")
                 f.write(f"sol: {sol}\n")
                 if show_flage == 1:
-                    f.write(f"student_answer_bbox: {student_answer_scores}\n")
-                    f.write(f"ground_truth_bbox: {ground_truth_scores}\n")
+                    f.write(f"student_answer_scores: {student_answer_scores}\n")
+                    f.write(f"ground_truth_scores: {ground_truth_scores}\n")
                     if student_answer_scores != None:
                         f.write(f"match_results: {reward}\n")
         show_flage = 0
